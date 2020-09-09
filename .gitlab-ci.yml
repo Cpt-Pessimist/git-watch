@@ -3,6 +3,7 @@ services:
   - docker:19.03.12-dind
 
 stages:
+  - test
   - build
   - release
 
@@ -16,6 +17,13 @@ variables:
   DOCKERHUB_RELEASE: $DOCKERHUB_PROJECT:$CI_COMMIT_SHORT_SHA
   DOCKERHUB_LATEST: $DOCKERHUB_PROJECT:latest
 
+hadolint:
+  stage: test
+  image: hadolint/hadolint
+  before_script:
+    - hadolint --version
+  script:
+    - hadolint Dockerfile
 
 build:
   stage: build
