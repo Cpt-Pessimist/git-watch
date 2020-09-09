@@ -44,7 +44,7 @@ release-dockerhub:
   - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
   - docker login -u $DOCKER_HUB_USER -p $DOCKER_HUB_PASSWORD
   script:
-    - docker pull $LATEST_IMAGE
+    - docker pull $RELEASE_IMAGE
     - docker tag $RELEASE_IMAGE $DOCKERHUB_RELEASE
     - docker tag $RELEASE_IMAGE $DOCKERHUB_LATEST
     - docker push $DOCKERHUB_RELEASE
