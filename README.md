@@ -4,7 +4,7 @@ Container containing git-watch script (https://github.com/gitwatch/gitwatch). Wa
 # Usage
 ```sh
 export privateKey=$(cat ./id_rsa)
-podman run -v /local/repo/path:/repo --env privateKey -e repoRemote=git@gitlab.com:cptpessimist/test.git -e repoBranch=gitwatch -e localPath=/repo registry.gitlab.com/cptpessimist/git-watch:master
+podman run -v /local/repo/path:/repo --env privateKey -e repoRemote=git@gitlab.com:user/repo.git -e repoBranch=branch -e localPath=/repo cptpessimist/git-watch:latest
 ```
 
 # Environment Variables
